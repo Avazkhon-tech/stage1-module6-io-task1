@@ -17,7 +17,7 @@ public class FileReader {
                 String key = data[0];
                 String value = data[1];
 
-                switch(key) {
+                switch (key) {
                     case "Name":
                         profile.setName(value);
                         break;
@@ -30,15 +30,19 @@ public class FileReader {
                     case "Phone":
                         profile.setPhone(Long.valueOf(value));
                         break;
+                    default:
+                        System.out.println("here it is sir");
                 }
             }
 
+
+            return profile;
+
+        } catch (FileNotFoundException e) {
+            throw new NoFile(e.getMessage());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new NoMoreLineException(e.getMessage());
         }
-
-
-        return profile;
-
     }
+
 }
