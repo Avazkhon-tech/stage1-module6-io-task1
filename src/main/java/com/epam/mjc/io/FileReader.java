@@ -1,8 +1,11 @@
 package com.epam.mjc.io;
 
 import java.io.*;
+import java.util.logging.Logger;
 
 public class FileReader {
+    Logger logger = Logger.getLogger(getClass().getName());
+
 
     public Profile getDataFromFile(File file) {
         Profile profile = new Profile();
@@ -31,7 +34,7 @@ public class FileReader {
                         profile.setPhone(Long.valueOf(value));
                         break;
                     default:
-                        System.out.println("here it is sir");
+                        logger.info(key + ": " + value + " is not a valid key");
                 }
             }
 
