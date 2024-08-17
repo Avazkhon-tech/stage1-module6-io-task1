@@ -1,7 +1,6 @@
 package com.epam.mjc.io;
 
 import java.io.*;
-import java.util.logging.Level;
 
 
 public class FileReader {
