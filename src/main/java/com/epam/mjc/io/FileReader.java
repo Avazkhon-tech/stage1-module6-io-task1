@@ -1,10 +1,11 @@
 package com.epam.mjc.io;
 
 import java.io.*;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class FileReader {
-    Logger logger = Logger.getLogger(getClass().getName());
+    final transient Logger logger = Logger.getLogger(getClass().getName());
 
 
     public Profile getDataFromFile(File file) {
@@ -34,7 +35,7 @@ public class FileReader {
                         profile.setPhone(Long.valueOf(value));
                         break;
                     default:
-                        logger.info(key + ": " + value + " is not a valid key");
+                        logger.log(Level.INFO, "Unknown key: " + key);
                 }
             }
 
